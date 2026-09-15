@@ -3,6 +3,7 @@ import { createObserveModule } from '@nestjs/observe';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CreatorsModule } from './creators/creators.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -15,6 +16,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
       appSecret: 'YOUR_APP_SECRET',
       serviceId: 'creatorops-api',
     }),
+    PrismaModule,
     CreatorsModule,
   ],
   controllers: [AppController],
