@@ -1,21 +1,15 @@
-import { Module } from '@nestjs/common';
-import { createObserveModule } from '@nestjs/observe';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CreatorsModule } from './creators/creators.module';
-import { PrismaModule } from './prisma/prisma.module';
+import { Module } from '@nestjs/common'
+// import { createObserveModule } from '@nestjs/observe'    // ← 注释掉
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { CreatorsModule } from './creators/creators.module'
+import { PrismaModule } from './prisma/prisma.module'
 
-export const { ObserveModule, ObserveInstrument } = createObserveModule();
+// export const { ObserveModule, ObserveInstrument } = createObserveModule()    // ← 注释掉
 
 @Module({
   imports: [
-    // Distributed tracing, auto-correlated logs, request/job metrics, error
-    // telemetry, alarms, and more — out of the box. Sign up at https://observe.nestjs.com
-    ObserveModule.forRoot({
-      appKey: 'YOUR_APP_KEY',
-      appSecret: 'YOUR_APP_SECRET',
-      serviceId: 'creatorops-api',
-    }),
+    // ObserveModule.forRoot({ ... }),   // ← 注释掉
     PrismaModule,
     CreatorsModule,
   ],
